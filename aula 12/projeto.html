@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <H4>Antes de iniciaar o programa clique com o botão direito do mouse, va em inspecionar e clique em <em>console</em></H4>
+    <button onclick="iniciar()">iniciar programa</button>
+    <script>
+function iniciar(){
+let livros = [{"nome" : "1984","autor" : "George Orwell","ano" : 1949,"genêro" : "ficção científica","avaliação" : ""},
+    {"nome" : "a revolta dos bichos","autor" : "George Orwell","ano" : 1945,"genêro" : "alegoria","avaliação" : ""}
+        ]
+    console.log("temos as seguintes funções:adicionar livro,buscar,avaliar,ver biblioteca e sair,copie daquie cole na barra")
+acao =""
+    while(acao!="sair"){
+
+let acao = prompt('digite o que deseja fazer')
+
+if (acao=="adicionar livro"){
+let novolivro ={}
+novolivro.nome = prompt("digite o título do livro")
+novolivro.autor = prompt("digite o nome do autor(a)")
+novolivro.ano = prompt("digite o ano de publicação do livro")
+novolivro.genêro = prompt("digite o gênero do livro")
+novolivro.avaliação = prompt("digite a nota que da ao livro")
+let objeto = ({nome : novolivro.nome,autor : novolivro.autor,ano : novolivro.ano,genêro : novolivro.genêro,avaliação : novolivro.avaliação} )
+livros.push(objeto)
+}
+
+if(acao == "sair"){break}
+
+if(acao == "buscar"){
+    let parametro = prompt("insíra o autor(a),título ou genêro do livro ou livros que deseja pesquisar") 
+    console.log("acredito que procure:")
+    i=0
+    while(i!=livros.length){
+if(livros[i].nome == parametro || livros[i].autor == parametro || livros[i].genêro == parametro){
+    console.log(livros[i])
+}
+i++
+
+    }
+}
+
+else if(acao == "avaliar"){
+    let identificador = prompt("insíra o título do livro que deseja avaliar")
+    let avaliacao = prompt("digite a nota que quer dar")
+    i3=0
+    while(i3!=livros.length){
+if(identificador == livros[i3].nome){
+    livros[i3].avaliação = avaliacao
+}
+i3++
+}
+}
+
+else if(acao == "ver biblioteca"){
+    i4 = 0
+    console.log("nossa biblioteca:")
+    while(i4 < livros.length){
+        console.log(livros[i4])
+        i4++
+    }
+}
+
+}
+}
+
+
+    </script>
+</body>
+</html>
